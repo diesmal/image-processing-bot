@@ -1,0 +1,14 @@
+python-telegram-bot
+torch>=1.7
+torchvision>=0.8.0
+Pillow
+requests
+git+https://github.com/sberbank-ai/Real-ESRGAN.git
+numpy
+opencv-python
+tqdm
+huggingface-hub
+pytest
+pytest-cov
+flake8
+gdown
