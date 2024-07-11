@@ -30,7 +30,7 @@ def test_generator():
 
 def test_ilia_real_esrgan_predict():
     device = 'cpu'
-    model_path = 'models/ilia_real_esrgan.pth'
+    model_path = 'ilia_real_esrgan.pth'
     download_model_from_google_drive('1wv6433R7yAgDblofyo-vTSi3ZmQ7oW_J', model_path)
     model = IliaRealESRGAN(device=device, model_path=model_path)
     input_image = Image.new('RGB', (128, 128), color='red')
