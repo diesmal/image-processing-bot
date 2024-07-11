@@ -22,7 +22,7 @@ def generate_image_with_model(model_type, image_url):
         sr_image = model.predict(input_image)
         sr_image.save('output.png')
     elif model_type == 'model_ilia_real_esrgan':
-        model_path = 'models/ilia_real_esrgan.pth'
+        model_path = 'ilia_real_esrgan.pth'
         download_model_from_google_drive('1wv6433R7yAgDblofyo-vTSi3ZmQ7oW_J', model_path)
         model = IliaRealESRGAN(device, model_path)
         sr_image = model.predict(input_image)
