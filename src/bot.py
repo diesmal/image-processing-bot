@@ -42,6 +42,13 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     )
 
 
+async def clear_queue(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    global task_queue, processing
+    task_queue.queue.clear()
+    processing = False
+    await update.message.reply_text("The processing queue has been cleared.")
+
+
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     photo = update.message.photo[-1]
     photo_file = await photo.get_file()
@@ -106,6 +113,7 @@ def main() -> None:
 
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("help", help_command))
+    application.add_handler(CommandHandler("clearqueue", clear_queue))
     application.add_handler(MessageHandler(filters.PHOTO, handle_photo))
     application.add_handler(CallbackQueryHandler(button))
 
